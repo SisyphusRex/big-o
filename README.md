@@ -12,3 +12,9 @@ find all sets (a, b, c) where n = a + b + c
 
 To test the different algorithms with machine independence, I am not timing
 the speed to a solution but the amount of iterations to a solution.
+
+OUTSIDE RESOURCES:
+
+ps://www.w3schools.com/python/ref_list_clear.asp
+    clear() method
+    this is preferable to assigning a new empty list to keep memory usage down

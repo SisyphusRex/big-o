@@ -1,22 +1,37 @@
 """main program file"""
 
 # System Imports
+import sys
 
 # First Party Imports
 from alice import Alice
 from bob import Bob
+from ui import UserInterface
 
 # Third Party Imports
 
 
 def main():
     """Method to Run program"""
-    my_alice = Alice()
-    my_alice.solver(10)
-    print(my_alice.solutions)
-    print(f"Alice iterations: {my_alice.count}")
-
+    my_ui = UserInterface()
     my_bob = Bob()
-    my_bob.solver(10)
-    print(my_bob.solutions)
-    print(f"Bob iterations: {my_bob.count}")
+    my_alice = Alice()
+    user_n = -1
+    running = True
+    while running:
+        choice = my_ui.display_main_menu()
+        match int(choice):
+            case 0:
+                # changes n value
+                user_n = int(my_ui.get_n())
+            case 1:
+                # runs solvers and displays statistics
+                if user_n >= 0:
+                    my_bob.solver(user_n)
+                    my_alice.solver(user_n)
+                    my_ui.print_iteration_comparison(my_bob, my_alice, user_n)
+                else:
+                    my_ui.print_n_not_initiated()
+            case 2:
+                # exits
+                sys.exit("goodbye")
