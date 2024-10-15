@@ -41,4 +41,4 @@ def main():
                     my_ui.print_n_not_initiated()
             case 2:
                 # exits
-                sys.exit("goodbye")
+                sys.exit()

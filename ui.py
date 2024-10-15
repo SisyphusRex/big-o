@@ -3,6 +3,7 @@
 # System Imports
 
 # First Party Imports
+from colors import print_blue, print_green, print_red, print_yellow
 
 # Third Party Imports
 
@@ -10,7 +11,7 @@
 class UserInterface:
     """ui class"""
 
-    MAIN_MENU: list = ["Change n", "Compare number of iterations", "Exit"]
+    MAIN_MENU: list = ["Change n", "Compare algorithm efficiency", "Exit"]
     PROBLEM: str = (
         "a + b + c = n\n"
         "Find all sets of nonnegative integers\n"
@@ -22,13 +23,13 @@ class UserInterface:
 
     def display_problem(self) -> None:
         """method to print problem"""
-        print(self.PROBLEM)
+        print_blue(self.PROBLEM)
 
     def display_main_menu(self) -> str:
         """method to display main menu and get input"""
         running = True
         while running:
-            print("Type the number of your choice:")
+            print_green("Type the number of your choice:")
             for index, value in enumerate(self.MAIN_MENU):
                 print(index, value)
             user_input = input(">")
@@ -40,7 +41,7 @@ class UserInterface:
         """method to get n"""
         running = True
         while running:
-            print("For the problem a + b + c = n, give me n:")
+            print_green("For the problem a + b + c = n, give me n:")
             n = input(">")
             running = self.__validate_int(n)
             print()
@@ -51,8 +52,8 @@ class UserInterface:
         try:
             int(input1)
         except ValueError:
-            print("Must be an integer.")
             print()
+            print_red("Must be an integer.")
             return True
         return False
 
@@ -63,7 +64,10 @@ class UserInterface:
             user_int = int(user_input)
             if user_int in menu_range:
                 return False
+            print()
+            print_red("Not a valid choice.")
             return True
+        return True
 
     def print_iteration_comparison(self, object1, object2, user_n):
         """method for printing number of iterations"""
@@ -78,5 +82,5 @@ class UserInterface:
 
     def print_n_not_initiated(self):
         """method to print not initiated error"""
-        print("Variable n not initiated yet.")
+        print_red("Variable n not initiated yet.")
         print()
