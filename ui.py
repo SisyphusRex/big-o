@@ -27,19 +27,19 @@ class UserInterface:
 
     def display_main_menu(self) -> str:
         """method to display main menu and get input"""
-        running = True
+        running: bool = True
         while running:
             print_green("Type the number of your choice:")
             for index, value in enumerate(self.MAIN_MENU):
                 print(index, value)
-            user_input = input(">")
+            user_input: str = input(">")
             running = self.__validate_in_main_menu(user_input)
             print()
         return user_input
 
     def get_n(self) -> str:
         """method to get n"""
-        running = True
+        running: bool = True
         while running:
             print_green("For the problem a + b + c = n, give me n:")
             n = input(">")
@@ -60,7 +60,7 @@ class UserInterface:
     def __validate_in_main_menu(self, user_input) -> bool:
         """method to validate if choice in menu"""
         if not self.__validate_int(user_input):
-            menu_range = range(len(self.MAIN_MENU))
+            menu_range: range = range(len(self.MAIN_MENU))
             user_int = int(user_input)
             if user_int in menu_range:
                 return False
@@ -70,12 +70,12 @@ class UserInterface:
         return True
 
     def print_iteration_comparison(
-        self, object1, for_loops1: int, object2, for_loops2: int, user_n
-    ):
+        self, object1: object, for_loops1: int, object2: object, for_loops2: int, user_n
+    ) -> None:
         """method for printing number of iterations"""
         print(f"When n = {user_n}")
-        headers = ["Name", "Iterations", "Runtime", "Big O"]
-        header_str = (
+        headers: list[str] = ["Name", "Iterations", "Runtime", "Big O"]
+        header_str: str = (
             f"{headers[0]:^15}|{headers[1]:^15}|{headers[2]:^15}|{headers[3]:^15}"
         )
         object1_big_o: str = f"n^{for_loops1}"
@@ -86,7 +86,7 @@ class UserInterface:
         print(f"{object2}|{object2_big_o:^15}")
         print()
 
-    def print_n_not_initiated(self):
+    def print_n_not_initiated(self) -> None:
         """method to print not initiated error"""
         print_yellow("Variable n not initiated yet.")
         print()

@@ -20,19 +20,19 @@ def main():
     my_bob = Bob()
     my_alice = Alice()
     my_utility = Utility()
-    user_n = -1
-    running = True
+    user_n: int = -1
+    running: bool = True
 
     # display main problem
     my_ui.display_problem()
 
     # this is the main decision tree based on menu choices
     while running:
-        choice = my_ui.display_main_menu()
+        choice: str = my_ui.display_main_menu()
         match int(choice):
             case 0:
                 # changes n value
-                user_n = int(my_ui.get_n())
+                user_n: int = int(my_ui.get_n())
             case 1:
                 # runs solvers and displays statistics
                 if user_n >= 0:
