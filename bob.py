@@ -20,18 +20,14 @@ class Bob(AbstractSolver):
         """string method"""
         return f"{super().__str__()}"
 
-    def solver(self, n: int):
+    def _child_solver(self, n: int):
         """bobs method to solve"""
-        super().solver()
-        timer_start = perf_counter()
         for a in range(n + 1):
             for b in range(n + 1):
                 for c in range(n + 1):
                     self.count += 1
                     if n == a + b + c:
                         self._add_solution((a, b, c))
-        timer_stop = perf_counter()
-        self.timer = timer_stop - timer_start
 
     @property
     def _name(self):

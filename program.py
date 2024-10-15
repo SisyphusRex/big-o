@@ -37,12 +37,8 @@ def main():
                 # runs solvers and displays statistics
                 if user_n >= 0:
                     my_bob.solver(user_n)
-                    bob_for_loops: int = my_utility.count_for_loops(my_bob.solver)
                     my_alice.solver(user_n)
-                    alice_for_loops: int = my_utility.count_for_loops(my_alice.solver)
-                    my_ui.print_iteration_comparison(
-                        my_bob, bob_for_loops, my_alice, alice_for_loops, user_n
-                    )
+                    my_ui.print_iteration_comparison(my_bob, my_alice, user_n)
                 else:
                     my_ui.print_n_not_initiated()
             case 2:

@@ -1,6 +1,7 @@
 """problem solver super class"""
 
 # System Imports
+from time import perf_counter
 
 # First Party Imports
 
@@ -28,12 +29,20 @@ class AbstractSolver(ABC):
         """string method"""
         return f"{self._name:^15}|{self.__format_count:>15}|{self.__format_time:^15}"
 
-    @abstractmethod
-    def solver(self):
+    def solver(self, n: int):
         """abstract method to solve problem"""
         self.count = 0
         self.solutions.clear()
         self.timer = 0.00
+        timer_start = perf_counter()
+        self._child_solver(n)
+        timer_stop = perf_counter()
+        self.timer = timer_stop - timer_start
+
+    @abstractmethod
+    def _child_solver(self, n: int):
+        """abastr"""
+        # this is necessary for reference in the solver method in between the timers
 
     @property
     @abstractmethod

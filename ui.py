@@ -70,20 +70,16 @@ class UserInterface:
         return True
 
     def print_iteration_comparison(
-        self, object1: object, for_loops1: int, object2: object, for_loops2: int, user_n
+        self, object1: object, object2: object, user_n
     ) -> None:
         """method for printing number of iterations"""
         print(f"When n = {user_n}")
-        headers: list[str] = ["Name", "Iterations", "Runtime", "Big O"]
-        header_str: str = (
-            f"{headers[0]:^15}|{headers[1]:^15}|{headers[2]:^15}|{headers[3]:^15}"
-        )
-        object1_big_o: str = f"n^{for_loops1}"
-        object2_big_o: str = f"n^{for_loops2}"
+        headers: list[str] = ["Name", "Iterations", "Runtime"]
+        header_str: str = f"{headers[0]:^15}|{headers[1]:^15}|{headers[2]:^15}"
         print(header_str)
         print("-" * len(header_str))
-        print(f"{object1}|{object1_big_o:^15}")
-        print(f"{object2}|{object2_big_o:^15}")
+        print(object1)
+        print(object2)
         print()
 
     def print_n_not_initiated(self) -> None:
