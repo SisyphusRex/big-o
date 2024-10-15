@@ -23,7 +23,7 @@ class Alice(AbstractSolver):
 
     def __str__(self):
         """string method"""
-        return f"{super().__str__()}: Alice"
+        return f"{super().__str__()}"
 
     def solver(self, n: int):
         """Alice method to solve"""
@@ -37,3 +37,7 @@ class Alice(AbstractSolver):
                     self._add_solution((a, b, c))
         timer_stop = perf_counter()
         self.timer = timer_stop - timer_start
+
+    @property
+    def _name(self):
+        return "Alice"

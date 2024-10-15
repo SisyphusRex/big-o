@@ -14,18 +14,20 @@ class UserInterface:
     PROBLEM: str = (
         "a + b + c = n\n"
         "Find all sets of nonnegative integers\n"
-        "(a, b, c) that sum to integer n, n >= 0"
+        "(a, b, c) that sum to integer n, n >= 0\n"
     )
 
     def __init__(self):
         """constructor"""
 
+    def display_problem(self) -> None:
+        """method to print problem"""
+        print(self.PROBLEM)
+
     def display_main_menu(self) -> str:
-        """displays main menu and gets input"""
+        """method to display main menu and get input"""
         running = True
         while running:
-            print(self.PROBLEM)
-            print()
             print("Type the number of your choice:")
             for index, value in enumerate(self.MAIN_MENU):
                 print(index, value)
@@ -45,6 +47,7 @@ class UserInterface:
         return n
 
     def __validate_int(self, input1) -> bool:
+        """method to validate if int"""
         try:
             int(input1)
         except ValueError:
@@ -54,6 +57,7 @@ class UserInterface:
         return False
 
     def __validate_in_main_menu(self, user_input) -> bool:
+        """method to validate if choice in menu"""
         if not self.__validate_int(user_input):
             menu_range = range(len(self.MAIN_MENU))
             user_int = int(user_input)
@@ -64,11 +68,15 @@ class UserInterface:
     def print_iteration_comparison(self, object1, object2, user_n):
         """method for printing number of iterations"""
         print(f"When n = {user_n}")
+        headers = ["Name", "Iterations", "Runtime"]
+        header_str = f"{headers[0]:^15}|{headers[1]:^15}|{headers[2]:^15}"
+        print(header_str)
+        print("-" * len(header_str))
         print(object1)
         print(object2)
         print()
 
     def print_n_not_initiated(self):
-        """print not initiated error"""
+        """method to print not initiated error"""
         print("Variable n not initiated yet.")
         print()

@@ -13,11 +13,18 @@ from ui import UserInterface
 
 def main():
     """Method to Run program"""
+
+    # initialization
     my_ui = UserInterface()
     my_bob = Bob()
     my_alice = Alice()
     user_n = -1
     running = True
+
+    # display main problem
+    my_ui.display_problem()
+
+    # this is the main decision tree based on menu choices
     while running:
         choice = my_ui.display_main_menu()
         match int(choice):

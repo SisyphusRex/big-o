@@ -26,7 +26,7 @@ class AbstractSolver(ABC):
 
     def __str__(self):
         """string method"""
-        return f"{self.count:<10} iterations, {self._format_time:>10} seconds runtime"
+        return f"{self._name:^15}|{self.count:^15}|{self._format_time:^15}"
 
     @abstractmethod
     def solver(self):
@@ -34,6 +34,11 @@ class AbstractSolver(ABC):
         self.count = 0
         self.solutions.clear()
         self.timer = 0.00
+
+    @property
+    @abstractmethod
+    def _name(self):
+        """method for name of class"""
 
     def _add_solution(self, solution: tuple):
         """add solution to solution list"""
