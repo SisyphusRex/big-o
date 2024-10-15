@@ -82,5 +82,5 @@ class UserInterface:
 
     def print_n_not_initiated(self):
         """method to print not initiated error"""
-        print_red("Variable n not initiated yet.")
+        print_yellow("Variable n not initiated yet.")
         print()

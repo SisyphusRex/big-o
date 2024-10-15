@@ -26,7 +26,7 @@ class AbstractSolver(ABC):
 
     def __str__(self):
         """string method"""
-        return f"{self._name:^15}|{self.count:^15}|{self._format_time:^15}"
+        return f"{self._name:^15}|{self.count:^15}|{self.__format_time:^15}"
 
     @abstractmethod
     def solver(self):
@@ -45,5 +45,6 @@ class AbstractSolver(ABC):
         self.solutions.append(solution)
 
     @property
-    def _format_time(self) -> str:
+    def __format_time(self) -> str:
+        """format time to 5 decimal places"""
         return f"{self.timer:.5f}"
