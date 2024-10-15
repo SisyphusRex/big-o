@@ -29,3 +29,6 @@ https://docs.python.org/3/library/time.html
 https://medium.com/@johnidouglasmarangon/padding-f-strings-in-python-977b17edbd36
     f"{:^10}
     center padding format
+
+https://stackoverflow.com/questions/44206813/how-to-convert-function-to-str-for-python
+    use inspect to convert function to a string

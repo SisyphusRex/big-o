@@ -26,7 +26,7 @@ class AbstractSolver(ABC):
 
     def __str__(self):
         """string method"""
-        return f"{self._name:^15}|{self.count:^15}|{self.__format_time:^15}"
+        return f"{self._name:^15}|{self.__format_count:>15}|{self.__format_time:^15}"
 
     @abstractmethod
     def solver(self):
@@ -47,4 +47,9 @@ class AbstractSolver(ABC):
     @property
     def __format_time(self) -> str:
         """format time to 5 decimal places"""
-        return f"{self.timer:.5f}"
+        return f"{self.timer:.5f} s"
+
+    @property
+    def __format_count(self) -> str:
+        """format count to have commas"""
+        return f"{self.count:,}"
